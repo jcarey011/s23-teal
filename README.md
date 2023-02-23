@@ -4,7 +4,7 @@ Trello: https://trello.com/b/CdMHULJT/team-teal
 # Members
 
   - jcarey011 - Jasmine Carey - jcare011@cs.odu.edu
-  - 
+  - ElonsTusk - David Sweeney - dswee014@odu.edu
   -
   -
   -
