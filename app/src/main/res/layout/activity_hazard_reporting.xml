@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".HazardReporting">
+
+    <TextView
+        android:id="@+id/hazardtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="50dp"
+        android:gravity="center"
+        android:text="Report A Hazard"
+        android:textColor="@color/white"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="75dp"
+        tools:layout_editor_absoluteY="24dp" />
+
+    <TextView
+        android:id="@+id/hazardtype"
+        android:layout_width="348dp"
+        android:layout_height="66dp"
+        android:layout_below="@id/hazardtitle"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:hint="Hazard Type"
+        android:padding="20dp"
+        android:textColorHint="@color/black"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="131dp" />
+
+    <Spinner
+        android:id="@+id/dropdown"
+        android:layout_width="287dp"
+        android:layout_height="34dp"
+        android:spinnerMode="dropdown"
+        android:dropDownSelector="@color/black"
+        tools:layout_editor_absoluteX="62dp"
+        tools:layout_editor_absoluteY="214dp" />
+
+    <EditText
+        android:id="@+id/city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dropdown"
+        android:layout_margin="10dp"
+        android:background="#30ffffff"
+        android:hint="City:"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/black"
+
+        tools:layout_editor_absoluteX="3dp"
+        tools:layout_editor_absoluteY="406dp" />
+
+    <EditText
+        android:id="@+id/state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/city"
+        android:layout_margin="10dp"
+        android:background="#30ffffff"
+        android:hint="State:"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/black"
+
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="478dp" />
+
+    <EditText
+        android:id="@+id/zip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/state"
+        android:layout_margin="10dp"
+        android:background="#30ffffff"
+        android:hint="Zip Code:"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/black"
+
+        tools:layout_editor_absoluteX="9dp"
+        tools:layout_editor_absoluteY="553dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
