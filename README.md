@@ -7,5 +7,5 @@ Trello: https://trello.com/b/CdMHULJT/team-teal
   - ElonsTusk - David Sweeney - dswee014@odu.edu
   - sheldon37 - Sheldon Deans - sdean008@odu.edu
   - DhruvParikh1 - Dhruv Parikh - dpari001@odu.edu
-  -
+  - 1Princetosin - Prince Osholaja - oosho001@odu.edu
   -
