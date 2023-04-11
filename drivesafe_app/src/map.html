@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DriveSafe Map</title>
+    <style>
+      html, body, #map {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style> // ENTER API KEY IN THE SRC URL BELOW
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY_HERE&callback=initMap" async defer></script>
+    <script>
+      var map;
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 36.8508, lng: -76.2859}, // center to preferred location // currently set to norfolk
+          zoom: 12
+        });
+
+        // need to replace with the actual locations from the database
+        var locations = [
+          {lat: 36.8508, lng: -76.2859},
+          {lat: 36.8813, lng: -76.3018}
+        ];
+
+        for (var i = 0; i < locations.length; i++) {
+            new google.maps.Marker({
+              position: locations[i],
+              map: map
+            });
+          }
+        }
+    </script>
+  </head>
+  <body onload="initMap()">
+    <div id="map"></div>
+  </body>
+</html>

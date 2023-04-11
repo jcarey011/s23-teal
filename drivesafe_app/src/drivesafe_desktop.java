@@ -4,6 +4,9 @@ import javax.swing.table.DefaultTableModel;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 public class drivesafe_desktop {
     private Connection conn;
@@ -71,10 +74,29 @@ public class drivesafe_desktop {
             }
         });
 
+        // Create a "Show Map" button
+        JButton showMapButton = new JButton("Show Map");
+        showMapButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    // Query the database for locations
+                    String sql = "SELECT Location FROM incident UNION SELECT Location FROM road_hazard;";
+                    ResultSet rs = main.stmt.executeQuery(sql);
+
+                    // STATIC HTML FILE containing GMaps JavaScript API code
+                    URI uri = new URI("src/map.html");
+                    Desktop.getDesktop().browse(uri);
+                } catch (SQLException | IOException | URISyntaxException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
+
         // Add the text field and button to the frame
         JPanel panel = new JPanel();
         panel.add(sqlTextField);
         panel.add(queryButton);
+        panel.add(showMapButton);
         frame.getContentPane().add(panel, BorderLayout.NORTH);
 
         // Set the size of the frame to cover 60% of the screen
