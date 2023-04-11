@@ -8,4 +8,4 @@ Trello: https://trello.com/b/CdMHULJT/team-teal
   - sheldon37 - Sheldon Deans - sdean008@odu.edu
   - DhruvParikh1 - Dhruv Parikh - dpari001@odu.edu
   - 1Princetosin - Prince Osholaja - oosho001@odu.edu
-  -
+  - ppate010 - Parth Patel - ppate010@odu.edu
