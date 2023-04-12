@@ -7,6 +7,15 @@ import java.awt.event.*;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class drivesafe_desktop {
     private Connection conn;
@@ -20,6 +29,42 @@ public class drivesafe_desktop {
             // Create a statement object to execute SQL statements
             stmt = conn.createStatement();
         } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private JSONArray fetchLocations() {
+        JSONArray locations = new JSONArray();
+        try {
+            String sql = "SELECT Location FROM incident UNION SELECT Location FROM road_hazard;";
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                String location = rs.getString("Location");
+                locations.put(location);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return locations;
+    }
+
+    private void generateMapHTML(JSONArray locations) {
+        try {
+            URL templateURL = getClass().getResource("map_template.html");
+            if (templateURL != null) {
+                Path templatePath = Paths.get(templateURL.toURI());
+                String template = Files.readString(templatePath);
+                template = template.replace("/*LOCATIONS_JSON*/", locations.toString());
+
+                // Generate map.html in the same directory as map_template.html
+                Path outputPath = templatePath.resolveSibling("map.html");
+                FileWriter fileWriter = new FileWriter(outputPath.toFile());
+                fileWriter.write(template);
+                fileWriter.close();
+            } else {
+                System.err.println("map_template.html not found");
+            }
+        } catch (IOException | URISyntaxException e) {
             e.printStackTrace();
         }
     }
@@ -78,15 +123,11 @@ public class drivesafe_desktop {
         JButton showMapButton = new JButton("Show Map");
         showMapButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                JSONArray locations = main.fetchLocations();
+                main.generateMapHTML(locations);
                 try {
-                    // Query the database for locations
-                    String sql = "SELECT Location FROM incident UNION SELECT Location FROM road_hazard;";
-                    ResultSet rs = main.stmt.executeQuery(sql);
-
-                    // STATIC HTML FILE containing GMaps JavaScript API code
-                    URI uri = new URI("src/map.html");
-                    Desktop.getDesktop().browse(uri);
-                } catch (SQLException | IOException | URISyntaxException ex) {
+                    Desktop.getDesktop().browse(new File("map.html").toURI());
+                } catch (IOException ex) {
                     ex.printStackTrace();
                 }
             }

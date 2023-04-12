@@ -72,6 +72,18 @@ CREATE TABLE `incident` (
 INSERT INTO `incident` (`Driver_ID`, `Incident_Type`, `Speed`, `Date`, `Time`, `Location`, `Trip_ID`) VALUES
 (12131432, 'HardBrake', NULL, '2020-05-05', '12:12:00', '4310 Elkhorn Ave Norfolk VA 23529', NULL);
 
+INSERT INTO `incident` (`Driver_ID`, `Incident_Type`, `Speed`, `Date`, `Time`, `Location`, `Trip_ID`) VALUES
+(234567, 'HardBrake', NULL, '2023-04-11', '10:15:00', '101 E Main St Norfolk VA 23510', 123);
+
+INSERT INTO `incident` (`Driver_ID`, `Incident_Type`, `Speed`, `Date`, `Time`, `Location`, `Trip_ID`) VALUES
+(345678, 'Collision', NULL, '2023-04-10', '14:20:00', '520 Boush St Norfolk VA 23510', 234);
+
+INSERT INTO `incident` (`Driver_ID`, `Incident_Type`, `Speed`, `Date`, `Time`, `Location`, `Trip_ID`) VALUES
+(456789, 'Speeding', 70, '2023-04-09', '08:00:00', '101 Granby St Norfolk VA 23510', 345);
+
+INSERT INTO `incident` (`Driver_ID`, `Incident_Type`, `Speed`, `Date`, `Time`, `Location`, `Trip_ID`) VALUES
+(567890, 'HardBrake', NULL, '2023-04-08', '12:30:00', '150 Boush St Norfolk VA 23510', 456);
+
 -- --------------------------------------------------------
 
 --
@@ -93,6 +105,18 @@ CREATE TABLE `road_hazard` (
 
 INSERT INTO `road_hazard` (`Driver_ID`, `Hazard_Type`, `Photo_Filename`, `Date`, `Time`, `Location`) VALUES
 (23518, 'pothole', 'ph123.jpg', '2012-12-12', '12:12:00', '5115 Hampton Blvd Norfolk VA 23529');
+
+INSERT INTO `road_hazard` (`Driver_ID`, `Hazard_Type`, `Photo_Filename`, `Date`, `Time`, `Location`) VALUES
+(12345, 'construction zone', 'cz789.jpg', '2023-04-11', '10:15:00', '235 E Main St Norfolk VA 23510');
+
+INSERT INTO `road_hazard` (`Driver_ID`, `Hazard_Type`, `Photo_Filename`, `Date`, `Time`, `Location`) VALUES
+(67890, 'fallen tree', 'ft012.jpg', '2023-04-10', '14:20:00', '401 Boush St Norfolk VA 23510');
+
+INSERT INTO `road_hazard` (`Driver_ID`, `Hazard_Type`, `Photo_Filename`, `Date`, `Time`, `Location`) VALUES
+(24680, 'road flooding', 'rf345.jpg', '2023-04-10', '16:45:00', '700 Monticello Ave Norfolk VA 23510');
+
+INSERT INTO `road_hazard` (`Driver_ID`, `Hazard_Type`, `Photo_Filename`, `Date`, `Time`, `Location`) VALUES
+(13579, 'icy road', 'ir678.jpg', '2023-04-09', '08:00:00', '800 Granby St Norfolk VA 23510');
 
 --
 -- Indexes for dumped tables
