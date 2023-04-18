@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">DriveSafe</string>
+    <string-array name="hazard_types_array">
+        <item>Accident</item>
+        <item>Construction</item>
+        <item>Debris</item>
+        <item>Animal on Road</item>
+        <item>Potholes</item>
+        <item>Downed Power Lines</item>
+        <item>Black Ice</item>
+        <item>Uneven Pavement</item>
+        <item>Lack of Signs</item>
+        <item>Water Pooling</item>
+        <item>Roadway Obstructions</item>
+        <item>Improper Lighting</item>
+        <item>Other</item>
+    </string-array>
+</resources>
