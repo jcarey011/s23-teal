@@ -10,6 +10,7 @@ import android.widget.Button;
 public class DriveMode extends AppCompatActivity {
 
     private Button reportHazardBtn;
+    private Button endTripBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,5 +25,14 @@ public class DriveMode extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        endTripBtn = findViewById(R.id.endTripBtn);
+        endTripBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
 }
