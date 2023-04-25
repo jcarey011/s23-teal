@@ -123,6 +123,16 @@
         android:textSize="18sp" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/backBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonsLayout"
+        android:layout_marginTop="10dp"
+        android:text="Back"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/teal_700" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/currentLocationBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -132,10 +142,11 @@
         android:text="Use Current Location"
         android:textColor="@color/white" />
     <LinearLayout
+        android:id="@+id/buttonsLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/currentLocationBtn"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <com.google.android.material.button.MaterialButton
@@ -163,5 +174,6 @@
             />
 
     </LinearLayout>
+
 
 </RelativeLayout>

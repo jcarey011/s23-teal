@@ -55,6 +55,14 @@ public class HazardReporting extends AppCompatActivity {
 
         hazardSpinner.setAdapter(adapter);
 
+        Button backBtn = findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
