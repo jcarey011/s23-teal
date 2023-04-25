@@ -40,10 +40,31 @@
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/cityLabel"
+        android:id="@+id/streetLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/dropdown"
+        android:layout_marginTop="24dp"
+        android:text="Street"
+        android:textColor="@color/white"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/street"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/streetLabel"
+        android:background="@drawable/edittext_border"
+        android:hint=""
+        android:padding="8dp"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/cityLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/street"
         android:layout_marginTop="24dp"
         android:text="City"
         android:textColor="@color/white"

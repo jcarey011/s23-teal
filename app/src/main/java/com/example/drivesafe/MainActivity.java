@@ -1,8 +1,10 @@
 package com.example.drivesafe;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -73,6 +75,15 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(Boolean result) {
             if (result) {
                 Toast.makeText(MainActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
+
+                // Save email to SharedPreferences bc it needs to be used in HazardReporting.java later
+                SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("email", username.getText().toString());
+                editor.apply();
+                // Log the saved email
+                Log.d("MainActivity", "Saved email: " + username.getText().toString());
+
                 Intent intent = new Intent(MainActivity.this, ActiveScreen.class);
                 startActivity(intent);
             } else {

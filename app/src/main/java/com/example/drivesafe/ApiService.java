@@ -10,4 +10,7 @@ public interface ApiService {
 
     @POST("login")
     Call<Void> loginUser(@Body User user);
+
+    @POST("report-hazard")
+    Call<Void> reportHazard(@Body HazardReport hazardReport);
 }
