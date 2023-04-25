@@ -28,5 +28,5 @@ The DriveSafe Desktop App is designed to help users query and visualize data rel
 
 ## Contributors
 
-- Dhruv Parikh
-- Prince Osholaja
+- Dhruv Parikh - Google Maps API Integration, DB Connection to MySQL, Parts of UI.
+- Prince Osholaja - Parts of UI.
