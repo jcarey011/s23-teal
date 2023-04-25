@@ -21,12 +21,13 @@ import java.io.FileWriter;
 
 
 public class query {
-
-    private JSONArray fetchLocations() {
+String sql;
+    private JSONArray fetchLocations(String sqlcopy) {
         JSONArray locations = new JSONArray();
         try {
-            String sql = "SELECT Location FROM incident UNION SELECT Location FROM road_hazard;";
-            ResultSet rs = stmt.executeQuery(sql);
+            String sql2 = sqlcopy;
+            sql2.replace("*", "location");
+            ResultSet rs = stmt.executeQuery(sql2);
             while (rs.next()) {
                 String location = rs.getString("Location");
                 locations.put(location);
@@ -92,7 +93,7 @@ public class query {
             public void actionPerformed(ActionEvent e) {
                 try {
                     // Get the SQL statement from the text field
-                    String sql = sqlTextField.getText();
+                    sql = sqlTextField.getText();
 
                     // Execute the SQL statement
                     ResultSet rs = stmt.executeQuery(sql);
@@ -149,7 +150,7 @@ public class query {
         JButton showMapButton = new JButton("Show Map");
         showMapButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                JSONArray locations = fetchLocations();
+                JSONArray locations = fetchLocations(sql);
                 generateMapHTML(locations);
                 try {
                     Desktop.getDesktop().browse(new File("map.html").toURI());
