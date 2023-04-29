@@ -82,6 +82,7 @@ String sql;
 
     
         JFrame frame = new JFrame("DriveSafe Data Query Interface");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Fix for the main issue
 
         // Create a text field where the user can enter their SQL statement
         JTextField sqlTextField = new JTextField();
@@ -109,7 +110,7 @@ String sql;
                     frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
                     frame.pack();
                     frame.setVisible(true);
-
+                    
                     // Fill the table model with data from the result set
                     ResultSetMetaData metaData = rs.getMetaData();
                     int columnCount = metaData.getColumnCount();
@@ -128,24 +129,6 @@ String sql;
                 }
             }
         });
-    
-       /* // Create a "Show Map" button
-        JButton showMapButton = new JButton("Show Map");
-        showMapButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    // Query the database for locations
-                    String sql = "SELECT Location FROM incident;";
-                    ResultSet rs = stmt.executeQuery(sql);
-
-                    // STATIC HTML FILE containing GMaps JavaScript API code
-                    URI uri = new URI("C:/Users/daves/OneDrive/Desktop/ODUSpring23/FinalTeal/s23-teal/drivesafe_app/src/map.html");
-                    Desktop.getDesktop().browse(uri);
-                } catch (SQLException | IOException | URISyntaxException ex) {
-                    ex.printStackTrace();
-                }
-            }
-        });*/
 
         JButton showMapButton = new JButton("Show Map");
         showMapButton.addActionListener(new ActionListener() {
@@ -177,10 +160,8 @@ String sql;
         frame.setLocationRelativeTo(null);
 
         frame.setVisible(true);
-
-        
     }
+
     public void show() {
     }
 }
-

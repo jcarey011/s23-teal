@@ -30,7 +30,7 @@ public class filter {
     private void initialize() {
         frame = new JFrame();
         frame.setBounds(100, 100, 700, 400);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // To prevent from closing the entire program when clicking the 'X'
         frame.getContentPane().setLayout(null);
 
         JLabel lblDriverId = new JLabel("Driver ID:");
