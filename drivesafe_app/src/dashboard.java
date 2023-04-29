@@ -12,41 +12,54 @@ public class dashboard {
 
     private void initialize() {
         frame = new JFrame();
-        frame.setBounds(100, 100, 450, 300);
+        frame.setBounds(100, 100, 600, 400);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().setLayout(new GridLayout(2, 1, 0, 10));
+        frame.getContentPane().setLayout(new BorderLayout(10, 10));
 
-        // Create a button to launch the driver form
+        JLabel titleLabel = new JLabel("DriveSafe");
+        titleLabel.setFont(new Font("Tahoma", Font.BOLD, 36));
+        titleLabel.setForeground(Color.decode("#333333"));
+        titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        frame.getContentPane().add(titleLabel, BorderLayout.NORTH);
+
+        JPanel buttonPanel = new JPanel(new GridBagLayout());
+        buttonPanel.setBackground(Color.WHITE);
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(10, 10, 10, 10);
+
         JButton filterButton = new JButton("Filter Search");
+        filterButton.setFont(new Font("Tahoma", Font.BOLD, 16));
+        filterButton.setBackground(Color.decode("#007BFF"));
+        filterButton.setForeground(Color.WHITE);
+        filterButton.setFocusPainted(false);
+        filterButton.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
         filterButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 filter filterForm = new filter();
                 filterForm.show();
             }
         });
-        frame.getContentPane().add(filterButton);
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        buttonPanel.add(filterButton, gbc);
 
-        /*  Create a button to launch the incident form
-        JButton incidentButton = new JButton("Incident Form");
-        incidentButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                incident incidentForm = new incident();
-                incidentForm.show();
-            }
-        });
-        frame.getContentPane().add(incidentButton);
-                                                                */
-
-
-        // Create a button to launch the query form
         JButton queryButton = new JButton("Query Search");
+        queryButton.setFont(new Font("Tahoma", Font.BOLD, 16));
+        queryButton.setBackground(Color.decode("#28A745"));
+        queryButton.setForeground(Color.WHITE);
+        queryButton.setFocusPainted(false);
+        queryButton.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
         queryButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 query queryForm = new query();
                 queryForm.show();
             }
         });
-        frame.getContentPane().add(queryButton);
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        buttonPanel.add(queryButton, gbc);
+
+        frame.getContentPane().add(buttonPanel, BorderLayout.CENTER);
 
         frame.setVisible(true);
     }
